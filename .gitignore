@@ -61,5 +61,5 @@ typings/
 .next
 
 # build files
-dist/bundle.js
-dist/main.js
+client/dist/bundle.js
+client/dist/main.js

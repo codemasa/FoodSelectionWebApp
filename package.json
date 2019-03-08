@@ -5,7 +5,12 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "dev": "webpack -d --watch",
+    "start": "node ./server/index.js",
+    "build": "webpack -p",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,12 +23,17 @@
   },
   "homepage": "https://github.com/codemasa/FoodSelectionWebApp#readme",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "babel-loader": "^8.0.5",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
   }

@@ -1,10 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 
-const app = document.getElementById('app')
-
-export default class App extends React.Component{
+class App extends React.Component{
   constructor(props){
     super(props);
   }
@@ -20,8 +17,6 @@ export default class App extends React.Component{
       </div>
     )
   }
-
-
 }
 
-ReactDOM.render(<App/>, app)
+export default App;
