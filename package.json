@@ -1,0 +1,30 @@
+{
+  "name": "web-app-chef-stefan",
+  "version": "0.0.1",
+  "description": "Web app for Chef Stefan",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codemasa/FoodSelectionWebApp.git"
+  },
+  "author": "Cody Masao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codemasa/FoodSelectionWebApp/issues"
+  },
+  "homepage": "https://github.com/codemasa/FoodSelectionWebApp#readme",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
+}
