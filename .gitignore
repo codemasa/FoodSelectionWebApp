@@ -63,3 +63,9 @@ typings/
 # build files
 client/dist/bundle.js
 client/dist/main.js
+
+# mwb files
+*.mwb*
+
+# sql create scripts
+createDB.sql
