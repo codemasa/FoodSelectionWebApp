@@ -1,0 +1,8 @@
+
+const REQUEST_RECIPE = 'REQUEST_RECIPE';
+const RECEIVE_RECIPE = 'RECEIVE_RECIPE';
+
+export default {
+    REQUEST_RECIPE,
+    RECEIVE_RECIPE
+}
