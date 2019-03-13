@@ -7,12 +7,19 @@ import {
 
 import RecipeContainer from './RecipeContainer.js';
 
-function HomeComponent({
 
+function HomeComponent({
+  recipeData,
+  fetchRecipes
 }) {
   return (
     <div>
-      <RecipeContainer/>
+      {recipeData.map((recipe) =>
+        {
+          console.log(recipe);
+          return <RecipeContainer recipe={recipe} key={recipe.recipeID}/>
+        }
+      )}
 
     </div>
   )

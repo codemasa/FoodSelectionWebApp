@@ -33,6 +33,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet-async": "^0.2.0",
+    "react-icons-kit": "^1.2.1",
     "react-imported-component": "^5.5.3",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",

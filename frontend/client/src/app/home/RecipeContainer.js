@@ -7,31 +7,15 @@ import RecipeComponent from './RecipeComponent.jsx';
 import { homeOperations } from './duck';
 
 const mapStateToProps = (state) => {
-  const { recipeID, recipeName, recipeType, recipeDescription } = state.home;
+  const { recipeData } = state.home;
   return {
-    recipeID,
-    recipeName,
-    recipeType,
-    recipeDescription
+    recipeData
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  const paramsString = window.location.search;
-  const params = new URLSearchParams(paramsString);
-  const recipeID = params.get('id');
-  const fetchRecipeByID = () => {
-    dispatch(homeOperations.fetchRecipeByID());
-  }
-
-
-
-  return { fetchRecipeByID };
-};
 
 const RecipeContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(RecipeComponent);
 
 export default RecipeContainer;

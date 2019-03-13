@@ -64,21 +64,20 @@ const RecipeLink = styled(Link)
 `
 
 function RecipeComponent({
-  recipeID,
-  recipeName,
-  recipeType,
-  recipeDescription,
-  fetchRecipeByID
+  recipe,
+  key
+
 }) {
   return (
     <Recipe>
-      <RecipeLink to={'/recipe?id='+recipeID}>
+      {console.log(recipe)}
+      <RecipeLink to={'/recipe?id='+recipe.recipeID}>
       <ThumbnailContainer>
         <Thumbnail src={placeholder}/>
       </ThumbnailContainer>
-      <RecipeName> {recipeName ? recipeName : "Recipe Name"} </RecipeName>
-      <RecipeType> {recipeType ? recipeType : "Recipe Type"} </RecipeType>
-      <RecipeDescription>  {recipeDescription ? recipeDescription : "Recipe Description"} </RecipeDescription>
+      <RecipeName> {recipe ? recipe.recipeName : "Recipe Name"} </RecipeName>
+      <RecipeType> {recipe.recipeType ? recipe.recipeType : "Recipe Type"} </RecipeType>
+      <RecipeDescription>  {recipe.recipeDescription ? recipe.recipeDescription : "Recipe Description"} </RecipeDescription>
       </RecipeLink>
     </Recipe>
   )

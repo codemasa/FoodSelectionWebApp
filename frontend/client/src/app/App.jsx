@@ -5,6 +5,8 @@ import {
 } from 'react-router-dom';
 import { Home } from './home';
 import { Recipe } from './recipe';
+import { Nav } from './topnav';
+import { GlobalStyles } from '../styles.js';
 
 class App extends Component {
   constructor(props){
@@ -13,15 +15,19 @@ class App extends Component {
   }
   render() {
     return (
-      <Router>
-        <div>
-          <Route exact path='/' component={Home}/>
-          <Route path='/home'   component={Home}/>
-          <Route path={'/recipe'}   component={Recipe}/>
+      <React.Fragment>
+        <GlobalStyles/>
+        <Nav/>
+        <Router>
+          <div>
+            <Route exact path='/' component={Home}/>
+            <Route path='/home'   component={Home}/>
+            <Route path={'/recipe'}   component={Recipe}/>
 
-          {/* Add all your remaining routes here, like /trending, /about, etc. */}
-        </div>
-      </Router>
+            {/* Add all your remaining routes here, like /trending, /about, etc. */}
+          </div>
+        </Router>
+      </React.Fragment>
     );
   }
 }
