@@ -2,6 +2,11 @@ import React from 'react';
 import shortid from 'shortid';
 import styled from 'styled-components'
 import placeholder from '../../../assets/placeholder.png';
+import {
+  BrowserRouter as Router,
+  Link,
+  Route
+} from 'react-router-dom';
 
 const Recipe = styled.div
 `
@@ -12,10 +17,6 @@ const Recipe = styled.div
   filter: alpha(opacity=80);
   opacity: .8;
   }
-  &:focus, &:active, &:hover {
-    text-decoration: none;
-  }
-
   font-family: "Arial";
 
 
@@ -38,12 +39,14 @@ const RecipeName = styled.h1
   margin-left 10px;
 
 
+
 `
 const RecipeType = styled.h2
 `
   margin: 0;
   margin-left 10px;
   padding-top: .25em;
+
 `
 const RecipeDescription = styled.p
 `
@@ -51,22 +54,32 @@ const RecipeDescription = styled.p
   margin-left 5px;
   padding: 1em;
 `
+const RecipeLink = styled(Link)
+`
+  color: #A3AB3B
+  text-decoration: none;
+  &:visited{
+    color: #A3AB3B
+  }
+`
 
 function RecipeComponent({
-  subredditData,
-  showRedditSpinner,
-  fetchSubredditJson
+  recipeID,
+  recipeName,
+  recipeType,
+  recipeDescription,
+  fetchRecipeByID
 }) {
-  if(showRedditSpinner) { return <p>Loading...</p> }
-
   return (
     <Recipe>
+      <RecipeLink to={'/recipe?id='+recipeID}>
       <ThumbnailContainer>
         <Thumbnail src={placeholder}/>
       </ThumbnailContainer>
-      <RecipeName> Recipe Name </RecipeName>
-      <RecipeType> Recipe Type </RecipeType>
-      <RecipeDescription>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </RecipeDescription>
+      <RecipeName> {recipeName ? recipeName : "Recipe Name"} </RecipeName>
+      <RecipeType> {recipeType ? recipeType : "Recipe Type"} </RecipeType>
+      <RecipeDescription>  {recipeDescription ? recipeDescription : "Recipe Description"} </RecipeDescription>
+      </RecipeLink>
     </Recipe>
   )
 }

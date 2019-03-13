@@ -3,19 +3,19 @@ import RecipeComponent from './RecipeComponent.jsx';
 import { recipeOperations } from './duck';
 
 const mapStateToProps = state => {
-
-  const { count } = state.home;
-  return { count };
+  const { recipeID } = state.recipe;
+  return { recipeID };
 };
 
 const mapDispatchToProps = dispatch => {
   // '1' is the number by which you want to increment the count
-  const onIncrementClick = () => dispatch(recipeOperations.incrementCount(1));
-  const onDecrementClick = () => dispatch(recipeOperations.decrementCount(1));
+  const requestRecipe = (recipe) => {
+    dispatch(recipeOperations.requestRecipe(recipe));
+  }
+
 
   return {
-    onIncrementClick,
-    onDecrementClick
+    requestRecipe
   }
 };
 

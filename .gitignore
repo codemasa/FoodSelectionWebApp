@@ -61,11 +61,18 @@ typings/
 .next
 
 # build files
-client/dist/bundle.js
-client/dist/main.js
+frontend/client/dist/bundle.js
+frontend/client/dist/main.js
+frontend/client/dist/*.png
+frontend/client/dist/*.ico
+
 
 # mwb files
 *.mwb*
 
 # sql create scripts
 createDB.sql
+
+# DS_STORE
+.DS_Store
+backend/

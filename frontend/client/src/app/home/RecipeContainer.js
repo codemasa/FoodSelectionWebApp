@@ -7,21 +7,26 @@ import RecipeComponent from './RecipeComponent.jsx';
 import { homeOperations } from './duck';
 
 const mapStateToProps = (state) => {
-  const { subredditData, showRedditSpinner } = state.home;
+  const { recipeID, recipeName, recipeType, recipeDescription } = state.home;
   return {
-    subredditData,
-    showRedditSpinner
+    recipeID,
+    recipeName,
+    recipeType,
+    recipeDescription
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
-  // 'fetchSubredditJson()' will trigger fetching of JSON data from
-  // the Reddit API and pushes the relevant data into the Redux store.
-  const fetchSubredditJson = (subreddit) => {
-      dispatch(homeOperations.fetchSubredditJson(subreddit))
-    };
+  const paramsString = window.location.search;
+  const params = new URLSearchParams(paramsString);
+  const recipeID = params.get('id');
+  const fetchRecipeByID = () => {
+    dispatch(homeOperations.fetchRecipeByID());
+  }
 
-  return { fetchSubredditJson };
+
+
+  return { fetchRecipeByID };
 };
 
 const RecipeContainer = connect(

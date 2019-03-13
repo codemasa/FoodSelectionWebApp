@@ -6,7 +6,6 @@ import {
 import { Home } from './home';
 import { Recipe } from './recipe';
 
-
 class App extends Component {
   constructor(props){
     super(props);

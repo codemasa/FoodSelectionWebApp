@@ -1,8 +1,9 @@
 import { createActions } from 'reduxsauce';
 
 const { Creators, Types } = createActions({
-  requestRecipe: ['subreddit'],
-  receiveRecipe: ['subredditData']
+  getRecipeID: ['value'],
+  requestRecipeID: ['recipe'],
+  receiveRecipeID: ['recipeData']
 });
 
 export { Creators, Types };
