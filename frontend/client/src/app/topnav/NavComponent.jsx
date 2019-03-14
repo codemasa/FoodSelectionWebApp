@@ -5,6 +5,12 @@ import {
   Route,
   NavLink
 } from 'react-router-dom';
+import { Button } from 'styled-button-component';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+} from 'styled-dropdown-component';
 import {Icon} from 'react-icons-kit';
 import {search} from 'react-icons-kit/icomoon/search';
 import {ic_shopping_basket} from 'react-icons-kit/md/ic_shopping_basket'
@@ -24,7 +30,7 @@ const Header = styled.header`
   display: inline-flex;
   justify-content: flex-start;
 
-  background-color: #EEAAAA;
+  background-color: #807443;
 `
 const Brand = styled.h1`
   padding-left: 10vw;
@@ -65,12 +71,14 @@ const SearchIcon = styled(Icon)
 const Basket = styled.div
 `
 `
+const BasketButton = styled(Button)
+`
+  background-color: #807443;
+  border: none;
+
+`
 const BasketIcon = styled(Icon)
 `
-  padding-bottom: .5;
-  padding-top: 1em;
-  padding-right: .5em;
-  width: 2em;
 `
 const ArrowDown = styled.i
 `
@@ -83,12 +91,38 @@ const ArrowDown = styled.i
   text-decoration: none;
 
 `
-function NavComponent({
+const BasketCount = styled.p
+`
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  padding: 4px;
+  background: #D51D29;
+  color: #FFFFFF;
+  text-align: center;
+  position: fixed;
+  margin-left: 20px;
+  font-size: 12px;
+`
+const BasketDisplay = styled.div
+`
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+`
 
+function NavComponent({
+  basket,
+  basketOpen,
+  openCloseBasket
 }) {
   return (
     <Header>
-      <Brand>Chef Stefan</Brand>
+      <Brand><NavLink exact to="/">Chef Stefan</NavLink></Brand>
       <Search>
         <SearchIcon icon={search}/>
         <SearchBar placeholder="Search..." name="search"/>
@@ -96,8 +130,14 @@ function NavComponent({
       <Menu>
         <MenuLink>
           <Basket>
-            <BasketIcon size="2em" icon={ic_shopping_basket}/>
-            <ArrowDown/>
+            {basket.length > 0 ? <BasketCount>{basket.length}</BasketCount> : null}
+          <BasketButton pill onClick={openCloseBasket}><BasketIcon size="3em" icon={ic_shopping_basket}/></BasketButton>
+          <Dropdown>
+            {console.log(basketOpen)}
+            <DropdownMenu hidden={basketOpen}>
+              {basket.map((recipe, key) => <DropdownItem>{recipe.recipeName}</DropdownItem>)}
+            </DropdownMenu>
+          </Dropdown>
           </Basket>
         </MenuLink>
       </Menu>

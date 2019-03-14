@@ -1,8 +1,9 @@
 import { createActions } from 'reduxsauce';
 
 const { Creators, Types } = createActions({
-  requestRecipeText: ['text'],
-  receiveRecipeText: ['textData']
+  addRecipeToBasket: ['text'],
+  requestRecipeByID: ['textData'],
+  receiveRecipeByID: ['recipeData']
 });
 
 export { Creators, Types };

@@ -1,8 +1,7 @@
 import { createActions } from 'reduxsauce';
 
 const { Creators, Types } = createActions({
-  requestRecipeID: ['recipe'],
-  receiveRecipeID: ['recipeData']
+  openCloseBasket: ['boolean']
 });
 
 export { Creators, Types };

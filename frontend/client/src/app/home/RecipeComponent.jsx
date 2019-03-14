@@ -12,12 +12,14 @@ const Recipe = styled.div
 `
   height: 20%;
   width: 500px;
-  background-color: #AABBCC;
+  background-color: #807443;
   &:hover {
   filter: alpha(opacity=80);
   opacity: .8;
   }
   font-family: "Arial";
+  display: inline-grid;
+  margin: 1em;
 
 
 `
@@ -56,10 +58,10 @@ const RecipeDescription = styled.p
 `
 const RecipeLink = styled(Link)
 `
-  color: #A3AB3B
+  color: #FFFFFF;
   text-decoration: none;
   &:visited{
-    color: #A3AB3B
+    color: #FFFFFF;
   }
 `
 
@@ -70,14 +72,13 @@ function RecipeComponent({
 }) {
   return (
     <Recipe>
-      {console.log(recipe)}
       <RecipeLink to={'/recipe?id='+recipe.recipeID}>
-      <ThumbnailContainer>
-        <Thumbnail src={placeholder}/>
-      </ThumbnailContainer>
-      <RecipeName> {recipe ? recipe.recipeName : "Recipe Name"} </RecipeName>
-      <RecipeType> {recipe.recipeType ? recipe.recipeType : "Recipe Type"} </RecipeType>
-      <RecipeDescription>  {recipe.recipeDescription ? recipe.recipeDescription : "Recipe Description"} </RecipeDescription>
+        <ThumbnailContainer>
+          <Thumbnail src={placeholder}/>
+        </ThumbnailContainer>
+        <RecipeName> {recipe ? recipe.recipeName : "Recipe Name"} </RecipeName>
+        <RecipeType> {recipe.recipeType ? recipe.recipeType : "Recipe Type"} </RecipeType>
+        <RecipeDescription>  {recipe.recipeDescription ? recipe.recipeDescription : "Recipe Description"} </RecipeDescription>
       </RecipeLink>
     </Recipe>
   )

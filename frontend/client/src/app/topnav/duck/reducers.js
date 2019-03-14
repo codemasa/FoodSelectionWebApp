@@ -1,31 +1,19 @@
 import types from './types';
 
 const INITIAL_STATE = {
-  recipeID: 0,
-  recipeData: []
+  basket: [],
+  basketOpen: true
 }
 const navReducer = (state=INITIAL_STATE, action) => {
   switch(action.type) {
 
-    case types.REQUEST_RECIPE_ID: {
-      const { recipeID } = action;
-      return {
+    case types.OPEN_CLOSE_BASKET: {
+      return{
         ...state,
-        recipeID,
-        recipeData: []
-
+        basketOpen: !state.basketOpen
       }
     }
-    case types.RECEIVE_RECIPE_ID: {
-      const { recipeData } = action;
-      console.log(action)
-      return {
-        ...state,
-        recipeID: recipeData.recipeID,
-        recipeData
 
-      }
-    }
 
     default: return state;
   }

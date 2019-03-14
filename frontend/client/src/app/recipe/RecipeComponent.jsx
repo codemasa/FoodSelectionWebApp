@@ -4,21 +4,29 @@ import {
   Link,
   Route
 } from 'react-router-dom';
+import styled from 'styled-components';
 
 import placeholder from '../../../assets/placeholder.png';
 
+const RecipeView = styled.div
+`
+  text-align: center;
+  display: grid;
+  justify-content: center;
+
+`
+
 
 function RecipeComponent({
-  recipeID,
-  imageURL,
-  requestRecipe
+  recipe,
+  addRecipeToBasket
 }) {
   return (
-    <div>
-      <h1> RECIPE {recipeID} </h1>
-      <h2> TYPE </h2>
-      <p> DESCRIPTION </p>
-      <img src={imageURL ? imageURL : placeholder}/>
+    <RecipeView>
+      <h1> {recipe ? recipe[0].recipeName : "??"} </h1>
+      <h2> {recipe ? recipe[0].recipeType : "??"} </h2>
+      <p> {recipe ? recipe[0].recipeDescription : "??"} </p>
+      <img src={placeholder}/>
       <br/>Meal:<br/>
       <select>
         <option value="breakfast">Breakfast</option>
@@ -30,10 +38,10 @@ function RecipeComponent({
       Instructions (optional):<br/>
       <textarea rows={4} cols={50} placeholder="Special Instructions"/>
       <br/><br/>
-      <button onClick={requestRecipe}>Send Text</button>
+      <Link to='/' ><button onClick={addRecipeToBasket}>Add to basket</button></Link>
 
 
-    </div>
+    </RecipeView>
   )
 }
 

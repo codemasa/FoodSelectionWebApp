@@ -17,13 +17,12 @@ class App extends Component {
     return (
       <React.Fragment>
         <GlobalStyles/>
-        <Nav/>
         <Router>
           <div>
+            <Nav/>
             <Route exact path='/' component={Home}/>
             <Route path='/home'   component={Home}/>
-            <Route path={'/recipe'}   component={Recipe}/>
-
+            <Route path='/recipe'  component={Recipe}/>
             {/* Add all your remaining routes here, like /trending, /about, etc. */}
           </div>
         </Router>

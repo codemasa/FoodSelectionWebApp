@@ -16,7 +16,6 @@ function HomeComponent({
     <div>
       {recipeData.map((recipe) =>
         {
-          console.log(recipe);
           return <RecipeContainer recipe={recipe} key={recipe.recipeID}/>
         }
       )}
