@@ -21,8 +21,9 @@ function RecipeComponent({
   return (
     <RecipeView>
       <h1> {recipe ? recipe[0].recipeName : "??"} </h1>
-      <h2> {recipe ? recipe[0].recipeType : "??"} </h2>
+      <h2> {recipe ? recipe[0].recipeDiet : "??"} </h2>
       <p> {recipe ? recipe[0].recipeDescription : "??"} </p>
+      <p> {recipe ? "CONTAINS: " + (recipe[0].recipeAllergens ? recipe[0].recipeAllergens : "none" ) : "??"} </p>
       <img src={placeholder}/>
       <FormComponent onSubmit={addRecipeToBasket}/>
       <Link to='/' ><button> Back to Home</button></Link>

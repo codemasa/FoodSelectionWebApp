@@ -46,11 +46,29 @@ const RecipeName = styled.h1
 const RecipeType = styled.h2
 `
   margin: 0;
-  margin-left 10px;
+  margin-left: 10px;
   padding-top: .25em;
+  float: left;
 
 `
+const RecipeDiet = styled.h2
+`
+  margin: 0;
+  margin-right: 10px;
+  padding-top: .25em;
+  float: right;
+
+`
+
 const RecipeDescription = styled.p
+`
+  margin: 0;
+  margin-left 5px;
+  padding: 1em;
+  clear: both;
+`
+
+const RecipeAllergens = styled.p
 `
   margin: 0;
   margin-left 5px;
@@ -78,7 +96,9 @@ function RecipeComponent({
         </ThumbnailContainer>
         <RecipeName> {recipe ? recipe.recipeName : "Recipe Name"} </RecipeName>
         <RecipeType> {recipe.recipeType ? recipe.recipeType : "Recipe Type"} </RecipeType>
+        <RecipeDiet> {recipe.recipeDiet ? recipe.recipeDiet : "Recipe Type"} </RecipeDiet>
         <RecipeDescription>  {recipe.recipeDescription ? recipe.recipeDescription : "Recipe Description"} </RecipeDescription>
+        <RecipeAllergens>  {recipe.recipeAllergens ? "CONTAINS: " + recipe.recipeAllergens : "CONTAINS: none"} </RecipeAllergens>
       </RecipeLink>
     </Recipe>
   )

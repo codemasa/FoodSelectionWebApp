@@ -26,7 +26,9 @@ const fetchRecipeByID = () => {
             recipeID: child.recipe_id,
             recipeName: child.recipe_name,
             recipeType: child.recipe_type,
-            recipeDescription: child.recipe_description
+            recipeDiet: child.recipe_diet,
+            recipeDescription: child.recipe_description,
+            recipeAllergens: child.recipe_allergens
           };
           data.push(childData);
           return null;
