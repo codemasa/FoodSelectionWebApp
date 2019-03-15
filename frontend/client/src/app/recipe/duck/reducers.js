@@ -2,18 +2,19 @@ import types from './types';
 
 const INITIAL_STATE = {
   recipeID: 0,
-  imageURL: null,
   recipe: null,
+  formData: null,
   basket: []
 
 }
 const recipeReducer = (state=INITIAL_STATE, action) => {
   switch(action.type) {
     case types.ADD_RECIPE_TO_BASKET: {
-      const { recipe } = action;
+      const { text } = action;
+      const basketRecipe = {...state.recipe[0], formData: text}
       return {
         ...state,
-        basket: [...state.basket, state.recipe[0]]
+        basket: [...state.basket, basketRecipe]
 
       }
     }
@@ -30,6 +31,7 @@ const recipeReducer = (state=INITIAL_STATE, action) => {
     }
     case types.RECEIVE_RECIPE_BY_ID: {
       const { recipeData } = action;
+      console.log(action)
       return {
         ...state,
         recipe: recipeData

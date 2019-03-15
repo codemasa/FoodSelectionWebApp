@@ -4,9 +4,9 @@ import { navOperations } from './duck';
 
 const mapStateToProps = state => {
 
-  const { basket } = state.recipe;
+  const { basket, formData } = state.recipe;
   const { basketOpen } = state.nav;
-  return { basket, basketOpen };
+  return { basket, formData, basketOpen };
 };
 
 

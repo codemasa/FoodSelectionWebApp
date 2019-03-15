@@ -73,6 +73,7 @@ const Basket = styled.div
 `
 const BasketButton = styled(Button)
 `
+  margin-right: 10em;
   background-color: #807443;
   border: none;
 
@@ -80,17 +81,7 @@ const BasketButton = styled(Button)
 const BasketIcon = styled(Icon)
 `
 `
-const ArrowDown = styled.i
-`
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  text-decoration: none;
 
-`
 const BasketCount = styled.p
 `
   border-radius: 50%;
@@ -104,15 +95,32 @@ const BasketCount = styled.p
   margin-left: 20px;
   font-size: 12px;
 `
-const BasketDisplay = styled.div
+
+const BasketItem = styled(DropdownItem)
 `
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
+`
+const BasketItemName = styled.h2
+`
+`
+
+const BasketItemInfo = styled.h3
+`
+
+  padding-left: .5em;
+`
+const BasketItemInst = styled.div
+`
+  overflow-wrap: break-word;
+  white-space: normal;
+`
+const ReviewButton = styled.button
+`
+  margin: 10px;
+  padding: .5em;
+`
+const BasketDropdownMenu = styled(DropdownMenu)
+`
+  max-width: 25em;
 `
 
 function NavComponent({
@@ -134,9 +142,21 @@ function NavComponent({
           <BasketButton pill onClick={openCloseBasket}><BasketIcon size="3em" icon={ic_shopping_basket}/></BasketButton>
           <Dropdown>
             {console.log(basketOpen)}
-            <DropdownMenu hidden={basketOpen}>
-              {basket.map((recipe, key) => <DropdownItem>{recipe.recipeName}</DropdownItem>)}
-            </DropdownMenu>
+            <BasketDropdownMenu hidden={basketOpen}>
+              {basket.map((recipe, key) => <BasketItem key={key}>
+
+                                              <BasketItemName>{recipe.recipeName}</BasketItemName>
+                                              <BasketItemInfo>Meal: {recipe.formData.meal} </BasketItemInfo>
+                                              <BasketItemInfo>Qty: {recipe.formData.portions} </BasketItemInfo>
+                                              <BasketItemInst>
+                                                <BasketItemInfo> Instructions: {recipe.formData.instructions} </BasketItemInfo>
+
+                                              </BasketItemInst>
+
+                                            </BasketItem>)
+              }
+              <ReviewButton> Review Order </ReviewButton>
+            </BasketDropdownMenu>
           </Dropdown>
           </Basket>
         </MenuLink>

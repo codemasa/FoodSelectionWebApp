@@ -1,11 +1,7 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route
-} from 'react-router-dom';
+import { Link }from 'react-router-dom';
 import styled from 'styled-components';
-
+import FormComponent from './FormComponent.jsx';
 import placeholder from '../../../assets/placeholder.png';
 
 const RecipeView = styled.div
@@ -19,6 +15,7 @@ const RecipeView = styled.div
 
 function RecipeComponent({
   recipe,
+  submit,
   addRecipeToBasket
 }) {
   return (
@@ -27,20 +24,8 @@ function RecipeComponent({
       <h2> {recipe ? recipe[0].recipeType : "??"} </h2>
       <p> {recipe ? recipe[0].recipeDescription : "??"} </p>
       <img src={placeholder}/>
-      <br/>Meal:<br/>
-      <select>
-        <option value="breakfast">Breakfast</option>
-        <option value="lunch">Lunch</option>
-        <option value="dinner">Dinner</option>
-        <option value="snack">Snack</option>
-      </select>
-      <br/>
-      Instructions (optional):<br/>
-      <textarea rows={4} cols={50} placeholder="Special Instructions"/>
-      <br/><br/>
-      <Link to='/' ><button onClick={addRecipeToBasket}>Add to basket</button></Link>
-
-
+      <FormComponent onSubmit={addRecipeToBasket}/>
+      <Link to='/' ><button> Back to Home</button></Link>
     </RecipeView>
   )
 }
