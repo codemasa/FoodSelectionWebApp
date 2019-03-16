@@ -1,37 +1,64 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-//
-// import {reduxForm} from 'redux-form';
-// import styled from 'styled-components';
-//
-// import FormComponent from './FormComponent.jsx';
-// import placeholder from '../../../assets/placeholder.png';
-//
-// const RecipeView = styled.div
-// `
-//   text-align: center;
-//   display: grid;
-//   justify-content: center;
-//
-// `
-//
-//
-// function RecipeComponent({
-//   recipe,
-//   addRecipeToBasket
-// }) {
-//   return (
-//     <RecipeView>
-//       <h1> {recipe ? recipe[0].recipeName : "??"} </h1>
-//       <h2> {recipe ? recipe[0].recipeType : "??"} </h2>
-//       <p> {recipe ? recipe[0].recipeDescription : "??"} </p>
-//       <img src={placeholder}/>
-//       <FormComponent onSubmit={addRecipeToBasket}/>
-//       <Link to="/"> <button> Back to home</button> </Link>
-//
-//
-//     </RecipeView>
-//   )
-// }
-//
-// export default RecipeComponent;
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import {reduxForm} from 'redux-form';
+import styled from 'styled-components';
+
+import placeholder from '../../../assets/placeholder.png';
+
+const ReviewView = styled.div
+`
+  text-align: center;
+  display: grid;
+  justify-content: center;
+
+`
+const BasketItem = styled.div
+`
+  text-align: left;
+  display: grid;
+  justify-content: left;
+
+`
+const BasketItemName = styled.h2
+`
+`
+
+const BasketItemInfo = styled.h3
+`
+
+  padding-left: .5em;
+`
+const BasketItemInst = styled.div
+`
+  overflow-wrap: break-word;
+  white-space: normal;
+`
+const ConfirmButton = styled.button
+`
+`
+
+function ReviewComponent({
+  basket,
+  submitOrder
+}) {
+  return (
+    <ReviewView>
+      {basket.map((recipe, key) =>  (<BasketItem key={key}>
+                                      <BasketItemName>{recipe.recipeName}</BasketItemName>
+                                      <BasketItemInfo>Meal: {recipe.formData.meal} </BasketItemInfo>
+                                      <BasketItemInfo>Qty: {recipe.formData.portions} </BasketItemInfo>
+                                      <BasketItemInst>
+                                        <BasketItemInfo> Instructions: {recipe.formData.instructions} </BasketItemInfo>
+
+                                      </BasketItemInst>
+                                    </BasketItem>
+                                    )
+      )}
+      <ConfirmButton onClick={() => submitOrder(basket)}> Confirm and send email </ConfirmButton>
+
+    </ReviewView>
+  )
+}
+
+export default ReviewComponent;

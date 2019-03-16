@@ -141,7 +141,6 @@ function NavComponent({
             {basket.length > 0 ? <BasketCount>{basket.length}</BasketCount> : null}
           <BasketButton pill onClick={openCloseBasket}><BasketIcon size="3em" icon={ic_shopping_basket}/></BasketButton>
           <Dropdown>
-            {console.log(basketOpen)}
             <BasketDropdownMenu hidden={basketOpen}>
               {basket.map((recipe, key) => <BasketItem key={key}>
 
@@ -155,7 +154,8 @@ function NavComponent({
 
                                             </BasketItem>)
               }
-              <ReviewButton> Review Order </ReviewButton>
+              {basket.length > 0 ? <NavLink to='/review'><ReviewButton> Review Order </ReviewButton></NavLink> : null}
+
             </BasketDropdownMenu>
           </Dropdown>
           </Basket>
