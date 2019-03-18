@@ -21,12 +21,12 @@ const reviewReducer = (state=INITIAL_STATE, action) => {
 
       }
     }
-    case types.RECIEVE_SUBMIT_ORDER: {
-      const { basketData } = action;
-      return {
-        ...state,
-
+    case types.RECEIVE_SUBMIT_ORDER: {
+      const { confirmation } = action;
+      if(confirmation == true){
+        alert("Email Sent");
       }
+      else(alert("error sending"));
     }
     default: return state;
   }

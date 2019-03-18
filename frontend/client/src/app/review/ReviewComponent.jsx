@@ -55,7 +55,7 @@ function ReviewComponent({
                                     </BasketItem>
                                     )
       )}
-      <ConfirmButton onClick={() => submitOrder(basket)}> Confirm and send email </ConfirmButton>
+      {basket.length > 0 ? <ConfirmButton onClick={() => submitOrder(basket)}> Confirm and send email </ConfirmButton> : null}
 
     </ReviewView>
   )

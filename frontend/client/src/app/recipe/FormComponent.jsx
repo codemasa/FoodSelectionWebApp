@@ -1,11 +1,18 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+
+const required = value => (value || typeof value === 'number' ? undefined : 'Required')
+const alphaNumeric = value =>
+  value && /[^a-zA-Z0-9 ]/i.test(value)
+    ? 'Only alphanumeric characters'
+    : undefined
+
 let FormComponent = props => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
       <br/>Meal:<br/>
-      <Field name="meal" component="select">
+      <Field name="meal" component="select" validate={[required]}>
         <option value="chooseOption">-- Choose Option --</option>
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>
@@ -13,7 +20,7 @@ let FormComponent = props => {
         <option value="snack">Snack</option>
       </Field>
       <br/>How many portions?<br/>
-      <Field name="portions" component="select">
+      <Field name="portions" component="select" validate={[required]}>
         <option value="chooseOption">-- Choose Option --</option>
         <option value="1">1</option>
         <option value="2">2</option>
