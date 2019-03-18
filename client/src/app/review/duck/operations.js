@@ -8,7 +8,7 @@ const receiveSubmitOrder = Creators.receiveSubmitOrder;
 const submitOrder = (order) => {
   return dispatch => {
     dispatch(requestSubmitOrder(order));
-    fetch('http://localhost:3000/order', {
+    fetch(process.env.PUBLIC_URL+'/order', {
     method: 'post',
     headers: {
       'Accept': 'application/json',

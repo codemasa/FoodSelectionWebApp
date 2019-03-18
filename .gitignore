@@ -61,10 +61,10 @@ typings/
 .next
 
 # build files
-frontend/client/dist/bundle.js
-frontend/client/dist/main.js
-frontend/client/dist/*.png
-frontend/client/dist/*.ico
+client/dist/bundle.js
+client/dist/main.js
+client/dist/*.png
+client/dist/*.ico
 
 
 # mwb files

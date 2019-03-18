@@ -15,7 +15,7 @@ const fetchRecipeByID = () => {
     // Dispatching this action will toggle the 'showRedditSpinner'
     // flag in the store, so that the UI can show a loading icon.
     dispatch(requestRecipeByID(id));
-    return fetch(`http://localhost:3000/chefstefandb`)
+    return fetch(process.env.PUBLIC_URL+`/chefstefandb`)
       .then(response => response.json())
       .then(json => {
       const responseData = json;

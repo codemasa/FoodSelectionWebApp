@@ -15,7 +15,7 @@ const fetchRecipes = () => {
     // flag in the store, so that the UI can show a loading icon.
     dispatch(requestRecipeIDAction());
     // TODO access database here
-    return fetch(`http://localhost:3000/chefstefandb`)
+    return fetch(process.env.PUBLIC_URL+`/chefstefandb`)
       .then(response => response.json())
       .then(json => {
       const responseData = json;
