@@ -75,4 +75,5 @@ createDB.sql
 
 # DS_STORE
 .DS_Store
-backend/
+
+.env
