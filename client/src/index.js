@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { rehydrateMarks } from 'react-imported-component';
 
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
