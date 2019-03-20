@@ -89,7 +89,7 @@ function RecipeComponent({
 
 }) {
   return (
-    <Recipe>
+    <Recipe key={key}>
       <RecipeLink to={'/recipe?id='+recipe.recipeID}>
         <ThumbnailContainer>
           <Thumbnail src={placeholder}/>

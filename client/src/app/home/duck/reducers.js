@@ -5,17 +5,7 @@ const INITIAL_STATE = {
 }
 const homeReducer = (state=INITIAL_STATE, action) => {
   switch(action.type) {
-
-    case types.FETCH_RECIPES: {
-      const { recipeID } = action;
-      return {
-        ...state,
-        recipeData: []
-
-      }
-    }
     case types.REQUEST_RECIPE_ID: {
-      const { recipeID } = action;
       return {
         ...state,
         recipeData: []

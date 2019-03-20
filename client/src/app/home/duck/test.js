@@ -5,6 +5,7 @@ import types from './types'
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import expect from 'expect';
+import reducer from './reducers.js';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -45,5 +46,15 @@ describe('async actions', () => {
     return store.dispatch(actions.fetchRecipes()).then(() =>{
       expect(store.getActions()).toEqual(expectedActions);
     });
+  }),30000;
+});
+
+describe('reducer', () => {
+  it('should return the initial state', () => {
+    expect(reducer(undefined, {})).toEqual(
+      {
+        recipeData: []
+      }
+    );
   });
 });

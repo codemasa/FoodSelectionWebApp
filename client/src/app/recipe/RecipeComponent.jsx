@@ -15,7 +15,6 @@ const RecipeView = styled.div
 
 function RecipeComponent({
   recipe,
-  submit,
   addRecipeToBasket
 }) {
   return (

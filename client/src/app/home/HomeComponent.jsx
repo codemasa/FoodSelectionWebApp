@@ -14,11 +14,11 @@ function HomeComponent({
 }) {
   return (
     <div>
-      {recipeData.map((recipe) =>
+      {recipeData ? recipeData.map((recipe) =>
         {
           return <RecipeContainer recipe={recipe} key={recipe.recipeID}/>
         }
-      )}
+      ):null}
 
     </div>
   )
