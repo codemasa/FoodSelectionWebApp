@@ -1,7 +1,6 @@
 import fetch from 'cross-fetch';
 import {Creators} from './actions';
 
-//const fetchRecipes = Creators.fetchRecipes;
 const requestRecipeIDAction = Creators.requestRecipeID;
 const receiveRecipeIDAction = Creators.receiveRecipeID;
 
@@ -15,8 +14,10 @@ const fetchRecipes = () => {
     // flag in the store, so that the UI can show a loading icon.
     dispatch(requestRecipeIDAction());
     // TODO access database here
-    return fetch(`/chefstefandb`)
-      .then(response => response.json())
+    return fetch(`http://localhost:3000/chefstefandb`)
+      .then(response => {
+        return response.json();
+      })
       .then(json => {
       const responseData = json;
       let data = [];
