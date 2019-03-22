@@ -1,7 +1,7 @@
 {
-  "name": "web-app-chef-stefan",
+  "name": "web-app-food-order",
   "version": "0.0.1",
-  "description": "Web app for Chef Stefan",
+  "description": "Web app for Ordering Food",
   "private": true,
   "scripts": {
     "test": "jest",

@@ -42,7 +42,8 @@ let FormComponent = props => {
 
 FormComponent = reduxForm({
   // a unique name for the form
-  form: 'basketItem'
+  form: 'basketItem',
+  reviewForm: 'review'
 })(FormComponent);
 
 export default FormComponent;

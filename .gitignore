@@ -64,7 +64,6 @@ typings/
 client/dist/bundle.js
 client/dist/main.js
 client/dist/*.png
-client/dist/*.ico
 
 
 # mwb files

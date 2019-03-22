@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import {reduxForm} from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
 import placeholder from '../../../assets/placeholder.png';
+import FormComponent from './FormComponent.jsx';
 
 const ReviewView = styled.div
 `
@@ -34,9 +35,7 @@ const BasketItemInst = styled.div
   overflow-wrap: break-word;
   white-space: normal;
 `
-const ConfirmButton = styled.button
-`
-`
+
 
 function ReviewComponent({
   basket,
@@ -55,7 +54,8 @@ function ReviewComponent({
                                     </BasketItem>
                                     )
       )}
-      {basket.length > 0 ? <ConfirmButton onClick={() => submitOrder(basket)}> Confirm and send email </ConfirmButton> : null}
+      {basket.length > 0 ? (<FormComponent/>
+                            ) : null}
 
     </ReviewView>
   )

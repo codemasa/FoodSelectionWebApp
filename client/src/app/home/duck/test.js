@@ -15,7 +15,7 @@ describe('async actions', () => {
     fetchMock.restore()
   });
   it('creates RECEIVE_RECIPE_ID when ', (recipeData) => {
-    fetchMock.getOnce('https://chef-stefan-backend.herokuapp.com/chefstefandb',{
+    fetchMock.getOnce('https://chef-stefan-backend.herokuapp.com/api/recipes',{
       recipeData,
       headers: { 'content-type': 'application/json' }
 

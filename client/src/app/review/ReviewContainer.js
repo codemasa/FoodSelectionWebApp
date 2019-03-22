@@ -12,8 +12,8 @@ const mapDispatchToProps = dispatch => {
   const retrieveBasket = (basket) => {
     dispatch(reviewOperations.retrieveBasket(basket));
   }
-  const submitOrder = (order) => {
-    dispatch(reviewOperations.submitOrder(order));
+  const submitOrder = (order,email) => {
+    dispatch(reviewOperations.submitOrder(order,email));
   }
 
 

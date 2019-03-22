@@ -130,7 +130,7 @@ function NavComponent({
 }) {
   return (
     <Header>
-      <Brand><NavLink exact to="/">Chef Stefan</NavLink></Brand>
+      <Brand><NavLink exact to="/">Order Food</NavLink></Brand>
       <Search>
         <SearchIcon icon={search}/>
         <SearchBar placeholder="Search..." name="search"/>

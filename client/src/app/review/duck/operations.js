@@ -5,7 +5,7 @@ const retrieveBasket = Creators.retrieveBasket;
 const requestSubmitOrder = Creators.requestSubmitOrder;
 const receiveSubmitOrder = Creators.receiveSubmitOrder;
 
-const submitOrder = (order) => {
+const submitOrder = (order, email) => {
   return dispatch => {
     dispatch(requestSubmitOrder(order));
     fetch('/order', {
@@ -14,7 +14,7 @@ const submitOrder = (order) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(order)
+    body: JSON.stringify({order: JSON.stringify(order), email: email})
   }).then((response) => dispatch(receiveSubmitOrder(response.ok)))
     .catch((error)=>console.log(error))
   }

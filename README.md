@@ -1,2 +1,2 @@
 # FoodSelectionWebApp
-Webapp for Chef Stefan
+Webapp for ordering food

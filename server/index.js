@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/../client/dist/index.html`));
 });
 
-app.get('/chefstefandb', function (req, res) {
+app.get('/api/recipes', function (req, res) {
     connection.query('SELECT * FROM chefstefandb.Recipe LIMIT 0, 10', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
@@ -52,7 +52,8 @@ app.use('/order', (req, res) =>
                 const second = (new Date().getSeconds());
                 const seconds = second > 9 ? second : "0" + second
 
-                const arr = req.body;
+                const arr = req.body.order;
+                console.log(arr)
                 const count = arr.length;
                 var htmlMessage = "<h1>New order with "+ count +" items</h1>";
                 for(var i=0 ; i<count ; i++){
@@ -74,7 +75,7 @@ app.use('/order', (req, res) =>
                 });
                 const mailOptions = {
                   from: '"Chef Rabicano Notifs" chefrabicanonotifs@gmail.com', // sender address
-                  to: process.env.EMAIL_REC, // list of receivers
+                  to: req.body.email, // list of receivers
                   subject: "New Recipe Request "+ date + "/" + month + "/" + year + " at " + hour + ":"+ minutes + ":"+ seconds, // Subject line
                   text: "", // plain text body
                   html: htmlMessage // html body
