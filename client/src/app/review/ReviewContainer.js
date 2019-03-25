@@ -4,7 +4,8 @@ import { reviewOperations } from './duck';
 
 const mapStateToProps = state => {
   const { basket } = state.recipe;
-  return { basket };
+  const { basketItem } = state.form;
+  return { basket, basketItem};
 };
 
 const mapDispatchToProps = dispatch => {

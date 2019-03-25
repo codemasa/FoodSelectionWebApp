@@ -21,9 +21,9 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
 )
 const ConfirmButton = styled.button
 `
-`
+`;
 let FormComponent = props => {
-  const { handleSubmit } = props
+  const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
       <Field name="email" type="email"
@@ -31,7 +31,7 @@ let FormComponent = props => {
         validate={email}
         warn={aol}
         />
-      <ConfirmButton onClick={() => submitOrder(basket, "ss")}> Confirm and send email </ConfirmButton>
+      <ConfirmButton type="submit"> Confirm and send email </ConfirmButton>
     </form>
   )
 };

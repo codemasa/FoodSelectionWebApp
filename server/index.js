@@ -52,8 +52,7 @@ app.use('/order', (req, res) =>
                 const second = (new Date().getSeconds());
                 const seconds = second > 9 ? second : "0" + second
 
-                const arr = req.body.order;
-                console.log(arr)
+                const arr = JSON.parse(req.body.order);
                 const count = arr.length;
                 var htmlMessage = "<h1>New order with "+ count +" items</h1>";
                 for(var i=0 ; i<count ; i++){

@@ -39,8 +39,10 @@ const BasketItemInst = styled.div
 
 function ReviewComponent({
   basket,
+  basketItem,
   submitOrder
 }) {
+
   return (
     <ReviewView>
       {basket.map((recipe, key) =>  (<BasketItem key={key}>
@@ -54,7 +56,7 @@ function ReviewComponent({
                                     </BasketItem>
                                     )
       )}
-      {basket.length > 0 ? (<FormComponent/>
+      {basket.length > 0 ? (<FormComponent onSubmit={() => submitOrder(basket,basketItem.values.email)}/>
                             ) : null}
 
     </ReviewView>

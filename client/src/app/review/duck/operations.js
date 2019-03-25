@@ -5,9 +5,9 @@ const retrieveBasket = Creators.retrieveBasket;
 const requestSubmitOrder = Creators.requestSubmitOrder;
 const receiveSubmitOrder = Creators.receiveSubmitOrder;
 
-const submitOrder = (order, email) => {
+const submitOrder = (order,email) => {
   return dispatch => {
-    dispatch(requestSubmitOrder(order));
+    dispatch(requestSubmitOrder(order,email));
     fetch('/order', {
     method: 'post',
     headers: {
