@@ -33,6 +33,12 @@ app.use(favicon(__dirname + `/favicon.ico`));
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/../client/dist/index.html`));
 });
+app.get('/review', (req, res) => {
+  res.sendFile(path.resolve(`${__dirname}/../client/dist/index.html`));
+});
+app.get('/recipe', (req, res) => {
+  res.sendFile(path.resolve(`${__dirname}/../client/dist/index.html`));
+});
 
 app.get('/api/recipes', function (req, res) {
     connection.query('SELECT * FROM chefstefandb.Recipe LIMIT 0, 10', function (error, results, fields) {
