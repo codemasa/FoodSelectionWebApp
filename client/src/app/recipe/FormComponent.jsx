@@ -6,21 +6,32 @@ const alphaNumeric = value =>
   value && /[^a-zA-Z0-9 ]/i.test(value)
     ? 'Only alphanumeric characters'
     : undefined
+const changed = value =>
+  value == 'chooseOption'
+    ? 'Please select an option'
+    : undefined
 
-let FormComponent = props => {
-  const { handleSubmit } = props
-  return (
-    <form onSubmit={handleSubmit}>
-      <br/>Meal:<br/>
-      <Field name="meal" component="select" validate={[required]}>
+const renderMeal = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <select {...input} placeholder={label} type={type}>
         <option value="chooseOption">-- Choose Option --</option>
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>
         <option value="dinner">Dinner</option>
         <option value="snack">Snack</option>
-      </Field>
-      <br/>How many portions?<br/>
-      <Field name="portions" component="select" validate={[required]}>
+      </select>
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+)
+
+const renderPortions = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <select {...input} placeholder={label} type={type}>
         <option value="chooseOption">-- Choose Option --</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -30,7 +41,21 @@ let FormComponent = props => {
         <option value="6">6</option>
         <option value="7">7</option>
         <option value="8">8</option>
-      </Field>
+      </select>
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+)
+
+
+let FormComponent = props => {
+  const { handleSubmit } = props
+  return (
+    <form onSubmit={handleSubmit}>
+      <br/>Meal:<br/>
+      <Field name="meal" component="select" validate={[required, changed]} component={renderMeal}/>
+      <br/>How many portions?<br/>
+      <Field name="portions" component="select" validate={[required, changed]} component={renderPortions}/>
       <br/>
       Instructions (optional):<br/>
       <Field name="instructions" component="textarea" rows={4} cols={50} placeholder="Special Instructions"/>

@@ -37,9 +37,6 @@ const recipeReducer = (state=INITIAL_STATE, action) => {
 
       }
     }
-    case types.SET_SUBMIT_FAILED: {
-      alert("Please select a meal and portion!")
-    }
 
     default: return state;
   }

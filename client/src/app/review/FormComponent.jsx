@@ -2,6 +2,8 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
+const required = value => value ? undefined : 'Required'
+
 const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
   'Invalid email address' : undefined
@@ -28,7 +30,7 @@ let FormComponent = props => {
     <form onSubmit={handleSubmit}>
       <Field name="email" type="email"
         component={renderField} label="Email"
-        validate={email}
+        validate={[email,required]}
         warn={aol}
         />
       <ConfirmButton type="submit"> Confirm and send email </ConfirmButton>
