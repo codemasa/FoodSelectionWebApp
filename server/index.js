@@ -47,6 +47,28 @@ app.get('/api/recipes', function (req, res) {
     });
 
 });
+app.get('/api/recipes/breakfast', function (req, res) {
+    connection.query('SELECT * FROM chefstefandb.Recipe WHERE chefstefandb.Recipe.recipe_type=' + "'Breakfast'" + ' LIMIT 0, 10', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+
+});
+app.get('/api/recipes/lunch', function (req, res) {
+    connection.query('SELECT * FROM chefstefandb.Recipe WHERE chefstefandb.Recipe.recipe_type=' + "'Lunch'" + ' LIMIT 0, 10', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+
+});
+
+app.get('/api/recipes/dinner', function (req, res) {
+    connection.query('SELECT * FROM chefstefandb.Recipe WHERE chefstefandb.Recipe.recipe_type=' + "'Dinner'" + ' LIMIT 0, 10', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+
+});
 app.use('/order', (req, res) =>
               {
                 const date = (new Date().getDate());
