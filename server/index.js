@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
 app.use(express.static(`${__dirname}/../client/dist`));
-app.use(favicon(__dirname + `/favicon.ico`));
+app.use(favicon(`${__dirname}/../client/dist/favicon.ico`));
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/../client/dist/index.html`));
