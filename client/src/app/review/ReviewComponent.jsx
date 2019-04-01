@@ -14,12 +14,20 @@ const ReviewView = styled.div
   justify-content: center;
 
 `
+
+const BasketView = styled.div
+`
+  background-color: #807443;
+  padding: 1em;
+
+
+`
 const BasketItem = styled.div
 `
   text-align: left;
   display: grid;
   justify-content: left;
-  
+
 
 `
 const BasketItemName = styled.h2
@@ -46,6 +54,7 @@ function ReviewComponent({
 
   return (
     <ReviewView>
+      <BasketView>
       {basket.map((recipe, key) =>  (<BasketItem key={key}>
                                       <BasketItemName>{recipe.recipeName}</BasketItemName>
                                       <BasketItemInfo>Meal: {recipe.formData.meal} </BasketItemInfo>
@@ -57,6 +66,7 @@ function ReviewComponent({
                                     </BasketItem>
                                     )
       )}
+      </BasketView>
       {basket.length > 0 ? (<FormComponent onSubmit={() => submitOrder(basket,basketItem.values.email)}/>
                             ) : null}
 
