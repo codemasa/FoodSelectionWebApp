@@ -2,6 +2,27 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
+const ConfirmButton = styled.button
+`
+  margin-top: 2em;
+
+`;
+const Form = styled.form
+`
+  margin-top: 2em;
+
+`;
+
+const EmailField = styled.input
+`
+ margin-right: 1em;
+`;
+const ErrorSpan = styled.span
+`
+  margin-left: 1em;
+  color: #AF2332;
+`;
+
 const required = value => value ? undefined : 'Required'
 
 const email = value =>
@@ -16,25 +37,23 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
   <div>
     <label>{label}</label>
     <div>
-      <input {...input} placeholder={label} type={type}/>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+      <EmailField {...input} placeholder={label} type={type}/>
+      {touched && ((error && <ErrorSpan>{error}</ErrorSpan>) || (warning && <span>{warning}</span>))}
     </div>
   </div>
 )
-const ConfirmButton = styled.button
-`
-`;
+
 let FormComponent = props => {
   const { handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Field name="email" type="email"
         component={renderField} label="Email"
         validate={[email,required]}
         warn={aol}
         />
       <ConfirmButton type="submit"> Confirm and send email </ConfirmButton>
-    </form>
+    </Form>
   )
 };
 

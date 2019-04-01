@@ -19,6 +19,7 @@ const BasketItem = styled.div
   text-align: left;
   display: grid;
   justify-content: left;
+  
 
 `
 const BasketItemName = styled.h2
