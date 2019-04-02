@@ -2,6 +2,13 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
+const FormDiv = styled.div
+`
+  background-color: #807443;
+  padding-top: 1em;
+  padding-bottom: 1em;
+`;
+
 const ConfirmButton = styled.button
 `
   margin-top: 2em;
@@ -46,14 +53,18 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
 let FormComponent = props => {
   const { handleSubmit } = props;
   return (
-    <Form onSubmit={handleSubmit}>
-      <Field name="email" type="email"
-        component={renderField} label="Email"
-        validate={[email,required]}
-        warn={aol}
-        />
-      <ConfirmButton type="submit"> Confirm and send email </ConfirmButton>
-    </Form>
+      <Form onSubmit={handleSubmit}>
+        <FormDiv>
+
+          <Field name="email" type="email"
+            component={renderField} label="Email"
+            validate={[email,required]}
+            warn={aol}
+            />
+        </FormDiv>
+
+        <ConfirmButton type="submit"> Confirm and send email </ConfirmButton>
+      </Form>
   )
 };
 

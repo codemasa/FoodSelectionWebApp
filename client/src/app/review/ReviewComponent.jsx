@@ -54,6 +54,7 @@ function ReviewComponent({
 
   return (
     <ReviewView>
+      <div>
       <BasketView>
       {basket.map((recipe, key) =>  (<BasketItem key={key}>
                                       <BasketItemName>{recipe.recipeName}</BasketItemName>
@@ -67,8 +68,11 @@ function ReviewComponent({
                                     )
       )}
       </BasketView>
+      </div>
+      <div>
       {basket.length > 0 ? (<FormComponent onSubmit={() => submitOrder(basket,basketItem.values.email)}/>
                             ) : null}
+      </div>
 
     </ReviewView>
   )
