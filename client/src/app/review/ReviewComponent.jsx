@@ -14,11 +14,25 @@ const ReviewView = styled.div
   justify-content: center;
 
 `
+const ReviewDiv = styled.div
+`
+  text-align: center;
+  display: grid;
+  justify-content: center;
 
+`
+const Overview = styled.h1
+`
+  text-align: left;
+`
 const BasketView = styled.div
 `
   background-color: #807443;
-  padding: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 5em;
+  padding-right: 5em;
+
 
 
 `
@@ -54,21 +68,22 @@ function ReviewComponent({
 
   return (
     <ReviewView>
-      <div>
-      <BasketView>
-      {basket.map((recipe, key) =>  (<BasketItem key={key}>
-                                      <BasketItemName>{recipe.recipeName}</BasketItemName>
-                                      <BasketItemInfo>Meal: {recipe.formData.meal} </BasketItemInfo>
-                                      <BasketItemInfo>Qty: {recipe.formData.portions} </BasketItemInfo>
-                                      <BasketItemInst>
-                                        <BasketItemInfo> Instructions: {recipe.formData.instructions} </BasketItemInfo>
+      <ReviewDiv>
+        <BasketView>
+        <Overview>Order Overview</Overview>
+        {basket.map((recipe, key) =>  (<BasketItem key={key}>
+                                        <BasketItemName>{recipe.recipeName}</BasketItemName>
+                                        <BasketItemInfo>Meal: {recipe.formData.meal} </BasketItemInfo>
+                                        <BasketItemInfo>Qty: {recipe.formData.portions} </BasketItemInfo>
+                                        <BasketItemInst>
+                                          <BasketItemInfo> Instructions: {recipe.formData.instructions} </BasketItemInfo>
 
-                                      </BasketItemInst>
-                                    </BasketItem>
-                                    )
-      )}
-      </BasketView>
-      </div>
+                                        </BasketItemInst>
+                                      </BasketItem>
+                                      )
+        )}
+        </BasketView>
+      </ReviewDiv>
       <div>
       {basket.length > 0 ? (<FormComponent onSubmit={() => submitOrder(basket,basketItem.values.email)}/>
                             ) : null}
