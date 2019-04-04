@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
     dispatch(recipeOperations.addRecipeToBasket(recipe));
   }
   const fetchRecipeByID = dispatch(recipeOperations.fetchRecipeByID());
-
+  const fetchImageByID = dispatch(recipeOperations.fetchImageByID());
 
   return {
     fetchRecipeByID,
