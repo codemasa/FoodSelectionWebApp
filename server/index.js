@@ -117,6 +117,16 @@ app.use('/order', (req, res) =>
                 });
 });
 
+app.use('/api/image', (req,res) => {
+                console.log(req.body)
+                //TODO Sql query
+                // connection.query('/*SQL QUERY*/', function (error, results, fields) {
+                //   if (error) throw error;
+                //   res.send(results)
+                // });
+                //
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}!`);
 });
