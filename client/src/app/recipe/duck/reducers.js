@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   recipeID: 0,
   recipe: null,
   formData: null,
-  basket: []
+  basket: [],
+  imageURL: ''
 
 }
 const recipeReducer = (state=INITIAL_STATE, action) => {
@@ -37,9 +38,24 @@ const recipeReducer = (state=INITIAL_STATE, action) => {
 
       }
     }
+    case types.REQUEST_IMAGE_BY_ID: {
+      return {
+        ...state
+      }
+    }
+    case types.RECEIVE_IMAGE_BY_ID: {
+      const { imageData } = action;
+      console.log({imageData})
+      return {
+        ...state,
+        imageURL: imageData
+
+      }
+    }
 
     default: return state;
   }
+
 }
 
 export default recipeReducer;

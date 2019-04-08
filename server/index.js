@@ -118,13 +118,11 @@ app.use('/order', (req, res) =>
 });
 
 app.use('/api/image', (req,res) => {
-                console.log(req.body)
-                //TODO Sql query
-                // connection.query('/*SQL QUERY*/', function (error, results, fields) {
-                //   if (error) throw error;
-                //   res.send(results)
-                // });
-                //
+                connection.query('SELECT picture_url FROM chefstefandb.Picture P JOIN chefstefandb.Recipe_has_Picture B ON  P.picture_id = B.Picture_picture_id WHERE Recipe_recipe_id = ' + req.body.id, function (error, results, fields) {
+                  if (error) throw error;
+                  res.send(results)
+                });
+
 });
 
 app.listen(PORT, () => {

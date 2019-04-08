@@ -3,8 +3,8 @@ import RecipeComponent from './RecipeComponent.jsx';
 import { recipeOperations } from './duck';
 
 const mapStateToProps = state => {
-  const { recipeID, recipe } = state.recipe;
-  return { recipeID, recipe };
+  const { recipeID, recipe, imageURL } = state.recipe;
+  return { recipeID, recipe, imageURL };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -17,6 +17,7 @@ const mapDispatchToProps = dispatch => {
 
   return {
     fetchRecipeByID,
+    fetchImageByID,
     addRecipeToBasket
   }
 };

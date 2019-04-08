@@ -4,8 +4,8 @@ import {Creators} from './actions';
 const addRecipeToBasket = Creators.addRecipeToBasket;
 const requestRecipeByID = Creators.requestRecipeByID;
 const receiveRecipeByID = Creators.receiveRecipeByID;
-const requestImageByID = Creators.requestRecipeByID;
-const receiveImageByID = Creators.receiveRecipeByID;
+const requestImageByID = Creators.requestImageByID;
+const receiveImageByID = Creators.receiveImageByID;
 
 // 'fetchSubredditJson()' will fetch the JSON data from the subreddit,
 // extract the required information and update the Redux store with it.
@@ -56,31 +56,19 @@ const fetchImageByID = () => {
     const params = new URLSearchParams(paramsString);
     const id = params.get('id');
     dispatch(requestImageByID(id))
-    return fetch(`/api/recipes`)
+    return fetch('/api/image', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({id: id})
+      })
       .then(response => response.json())
-      .then(json => {
-      const responseData = json;
-      let data = [];
-      responseData.map(child => {
-        if(child.recipe_id == id){
-          const childData = {
-            recipeID: child.recipe_id,
-            recipeName: child.recipe_name,
-            recipeType: child.recipe_type,
-            recipeDiet: child.recipe_diet,
-            recipeDescription: child.recipe_description,
-            recipeAllergens: child.recipe_allergens
-          };
-          data.push(childData);
-          return null;
-        }
-        return null;
-
-      });
-      dispatch(receiveImageByID);
-    });
+      .then(json => dispatch(receiveImageByID(json[0].picture_url)));
+    }
   }
-}
+
 
 export default {
   addRecipeToBasket,
