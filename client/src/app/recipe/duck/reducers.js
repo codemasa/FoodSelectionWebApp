@@ -45,7 +45,6 @@ const recipeReducer = (state=INITIAL_STATE, action) => {
     }
     case types.RECEIVE_IMAGE_BY_ID: {
       const { imageData } = action;
-      console.log({imageData})
       return {
         ...state,
         imageURL: imageData

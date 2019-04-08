@@ -11,10 +11,15 @@ const RecipeView = styled.div
   justify-content: center;
 
 `
+const RecipeImage = styled.img
+`
+  width: 500px;
+`
 
 
 function RecipeComponent({
   recipe,
+  imageURL,
   addRecipeToBasket
 }) {
   return (
@@ -23,7 +28,7 @@ function RecipeComponent({
       <h2> {recipe ? recipe[0].recipeDiet : "??"} </h2>
       <p> {recipe ? recipe[0].recipeDescription : "??"} </p>
       <p> {recipe ? "CONTAINS: " + (recipe[0].recipeAllergens ? recipe[0].recipeAllergens : "none" ) : "??"} </p>
-      <img src={recipe ? recipe[0].imageURL : placeholder}/>
+      <RecipeImage src={imageURL ? imageURL : placeholder}/>
       <FormComponent onSubmit={addRecipeToBasket}/>
       <Link to='/' ><button> Back to Home</button></Link>
     </RecipeView>
