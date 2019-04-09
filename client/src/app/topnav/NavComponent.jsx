@@ -22,7 +22,7 @@ const Header = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  max-width: 100vw;
+  width: 100%;
   max-height: 10vh;
   margin: 0 auto;
   padding: 1em 0;
@@ -33,6 +33,7 @@ const Header = styled.header`
   background-color: #807443;
 `
 const Brand = styled.h1`
+  padding-top: .5em;
   padding-left: 10vw;
   font-size: var(--step-up-1);
   padding-right: 2em;
@@ -56,17 +57,17 @@ const Search = styled.span
 `
 const SearchBar = styled.input
 `
-  font-size: 25px;
-  width: 40em;
+  font-size: 20px;
   padding: 1rem;
   padding-left: 4rem;
   float:left;
 `
 const SearchIcon = styled(Icon)
 `
-  position: fixed;
-  padding-top: 1em;
+  position: absolute;
+  padding-top: .8em;
   padding-left: 1em;
+  color: #ABABAB;
 `
 const Basket = styled.div
 `
