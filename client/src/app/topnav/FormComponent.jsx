@@ -6,8 +6,7 @@ import {search} from 'react-icons-kit/icomoon/search';
 
 const FormDiv = styled.div
 `
-  padding-top: 1em;
-  padding-bottom: 1em;
+
 `;
 
 const ConfirmButton = styled.button
@@ -64,12 +63,10 @@ const aol = value =>
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
-    <div>
-      <Search>
-        <SearchIcon icon={search}/>
-        <SearchBar {...input} placeholder={label} type={type}/>
-      </Search>
-    </div>
+    <Search>
+      <SearchIcon icon={search}/>
+      <SearchBar {...input} placeholder={label} type={type}/>
+    </Search>
   </div>
 )
 
@@ -78,10 +75,8 @@ let FormComponent = props => {
   return (
       <Search onSubmit={handleSubmit}>
 
-          <Field name="search" type="search"
+          <Field name="search" type="input"
             component={renderField} label="Search"
-            validate={[email,required]}
-            warn={aol}
             />
       </Search>
   )
