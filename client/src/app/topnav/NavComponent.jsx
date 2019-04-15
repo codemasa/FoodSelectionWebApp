@@ -11,6 +11,7 @@ import {
   DropdownItem,
   DropdownMenu,
 } from 'styled-dropdown-component';
+import FormComponent from './FormComponent.jsx';
 import {Icon} from 'react-icons-kit';
 import {search} from 'react-icons-kit/icomoon/search';
 import {ic_shopping_basket} from 'react-icons-kit/md/ic_shopping_basket'
@@ -49,26 +50,7 @@ const MenuLink = styled.li`
   margin-left: 2em;
   text-decoration: none;
 `
-const Search = styled.span
-`
-  position: relative;
-  justify-content: flex;
 
-`
-const SearchBar = styled.input
-`
-  font-size: 20px;
-  padding: 1rem;
-  padding-left: 4rem;
-  float:left;
-`
-const SearchIcon = styled(Icon)
-`
-  position: absolute;
-  padding-top: .8em;
-  padding-left: 1em;
-  color: #ABABAB;
-`
 const Basket = styled.div
 `
 `
@@ -132,10 +114,7 @@ function NavComponent({
   return (
     <Header>
       <Brand><NavLink exact to="/">Order Food</NavLink></Brand>
-      <Search>
-        <SearchIcon icon={search}/>
-        <SearchBar placeholder="Search..." name="search"/>
-      </Search>
+      <FormComponent/>
       <Menu>
         <MenuLink>
           <Basket>
