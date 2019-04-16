@@ -11,7 +11,8 @@ import {
 const Recipe = styled.div
 `
   height: 20%;
-  width: 500px;
+  max-width: 100%;
+  min-width: 300px;
   background-color: #807443;
   &:hover {
   filter: alpha(opacity=80);

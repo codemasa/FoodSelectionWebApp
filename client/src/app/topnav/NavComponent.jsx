@@ -12,9 +12,11 @@ import {
   DropdownMenu,
 } from 'styled-dropdown-component';
 import FormComponent from './FormComponent.jsx';
+import ResponsiveMenu from 'react-responsive-navbar';
 import {Icon} from 'react-icons-kit';
 import {search} from 'react-icons-kit/icomoon/search';
 import {ic_shopping_basket} from 'react-icons-kit/md/ic_shopping_basket'
+import {menu} from 'react-icons-kit/icomoon/menu'
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -24,13 +26,13 @@ const Header = styled.header`
   left: 0;
   right: 0;
   width: 100%;
-  max-height: 10vh;
+  min-height: 3.25em;
+  max-height: 3.25em;
   margin: 0 auto;
   padding: 1em 0;
   margin-bottom: 1em;
   display: inline-flex;
   justify-content: flex-start;
-
   background-color: #807443;
 `
 const Brand = styled.h1`
@@ -56,7 +58,7 @@ const Basket = styled.div
 `
 const BasketButton = styled(Button)
 `
-  margin-right: 10em;
+  margin-right: 4vw;
   background-color: #807443;
   border: none;
 

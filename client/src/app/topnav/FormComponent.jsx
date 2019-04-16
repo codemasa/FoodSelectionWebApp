@@ -2,8 +2,8 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 import Icon from 'react-icons-kit';
-import {search} from 'react-icons-kit/icomoon/search';
 
+import {search} from 'react-icons-kit/icomoon/search';
 const FormDiv = styled.div
 `
 
@@ -31,17 +31,17 @@ const ErrorSpan = styled.span
 `;
 const Search = styled.span
 `
-  background-color: #FFFFFF
   position: relative;
   justify-content: flex;
 
 `
 const SearchBar = styled.input
 `
+  width 40vw;
   font-size: 20px;
   padding: 1rem;
   padding-left: 4rem;
-  float:left;
+
 `
 const SearchIcon = styled(Icon)
 `
@@ -51,15 +51,6 @@ const SearchIcon = styled(Icon)
   color: #ABABAB;
 `
 
-const required = value => value ? undefined : 'Required'
-
-const email = value =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-  'Invalid email address' : undefined
-
-const aol = value =>
-  value && /.+@aol\.com/.test(value) ?
-  'Really? You still use AOL for your email?' : undefined
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
