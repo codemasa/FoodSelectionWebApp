@@ -41,7 +41,7 @@ app.get('/recipe', (req, res) => {
 });
 
 app.get('/api/recipes', function (req, res) {
-    connection.query('SELECT * FROM chefstefandb.Recipe LIMIT 0, 10', function (error, results, fields) {
+    connection.query('SELECT * FROM chefstefandb.Recipe JOIN chefstefandb.Picture WHERE recipe_id = picture_id', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });

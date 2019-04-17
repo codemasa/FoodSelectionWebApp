@@ -4,6 +4,8 @@ const { Creators, Types } = createActions({
   fetchRecipes: ['value'],
   requestRecipeID: ['recipe'],
   receiveRecipeID: ['recipeData'],
+  requestImageByID: ['recipe'],
+  receiveImageByID: ['imageURL'],
   successFetchRecipes: ['promise']
 });
 

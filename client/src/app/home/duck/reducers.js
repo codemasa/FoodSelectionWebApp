@@ -20,6 +20,19 @@ const homeReducer = (state=INITIAL_STATE, action) => {
 
       }
     }
+    case types.REQUEST_IMAGE_ID: {
+      return {
+        ...state
+      }
+    }
+    case types.RECEIVE_IMAGE_ID: {
+      const { recipeData } = action;
+      return {
+        ...state,
+        recipeData
+
+      }
+    }
 
     default: return state;
   }

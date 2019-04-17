@@ -22,16 +22,17 @@ const fetchRecipes = () => {
       const responseData = json;
       let data = [];
       responseData.map(child => {
-        const childData = {
+        let childData = {
           recipeID: child.recipe_id,
           recipeName: child.recipe_name,
           recipeType: child.recipe_type,
           recipeDiet: child.recipe_diet,
           recipeDescription: child.recipe_description,
-          recipeAllergens: child.recipe_allergens
+          recipeAllergens: child.recipe_allergens,
+          imageURL: child.picture_url
         };
-
         data.push(childData);
+        console.log(data)
         return null;
       });
 
@@ -43,9 +44,13 @@ const fetchRecipes = () => {
       // the Redux store.
       dispatch(receiveRecipeIDAction(data))
 
+
     });
   }
 };
+
+
+
 
 
 export default {

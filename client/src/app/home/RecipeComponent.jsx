@@ -10,9 +10,10 @@ import {
 
 const Recipe = styled.div
 `
-  height: 20%;
-  max-width: 100%;
+  height: 30vh;
+  max-width: 20%;
   min-width: 300px;
+
   background-color: #807443;
   &:hover {
   filter: alpha(opacity=80);
@@ -26,13 +27,13 @@ const Recipe = styled.div
 `
 const ThumbnailContainer = styled.div
 `
-  height: 100px;
+  height: 10vh;
   overflow: hidden;
 `
 const Thumbnail = styled.img
 `
-
-  width:500px;
+  width: 100%;
+  height: 200%;
 
 `
 
@@ -87,13 +88,12 @@ const RecipeLink = styled(Link)
 function RecipeComponent({
   recipe,
   key
-
 }) {
   return (
     <Recipe key={key}>
       <RecipeLink to={'/recipe?id='+recipe.recipeID}>
         <ThumbnailContainer>
-          <Thumbnail src={placeholder}/>
+          <Thumbnail src={recipe.imageURL}/>
         </ThumbnailContainer>
         <RecipeName> {recipe ? recipe.recipeName : "Recipe Name"} </RecipeName>
         <RecipeType> {recipe.recipeType ? recipe.recipeType : "Recipe Type"} </RecipeType>

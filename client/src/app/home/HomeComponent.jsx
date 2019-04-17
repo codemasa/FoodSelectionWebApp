@@ -9,8 +9,7 @@ import RecipeContainer from './RecipeContainer.js';
 
 
 function HomeComponent({
-  recipeData,
-  fetchRecipes
+  recipeData
 }) {
   return (
     <div>
