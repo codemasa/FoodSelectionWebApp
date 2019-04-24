@@ -108,6 +108,11 @@ const BasketDropdownMenu = styled(DropdownMenu)
   max-width: 25em;
 `
 
+const Nothing = styled.h1
+`
+  padding: 1em;
+`
+
 function NavComponent({
   basket,
   basketOpen,
@@ -136,7 +141,7 @@ function NavComponent({
 
                                             </BasketItem>)
               }
-              {basket.length > 0 ? <NavLink to='/review'><ReviewButton> Review Order </ReviewButton></NavLink> : null}
+              {basket.length > 0 ? <NavLink to='/review'><ReviewButton> Review Order </ReviewButton></NavLink> : <Nothing>Nothing in basket</Nothing>}
 
             </BasketDropdownMenu>
           </Dropdown>

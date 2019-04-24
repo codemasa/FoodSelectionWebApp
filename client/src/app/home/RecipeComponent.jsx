@@ -10,7 +10,7 @@ import {
 
 const Recipe = styled.div
 `
-  height: 30vh;
+  height: 100%;
   max-width: 20%;
   min-width: 300px;
 
